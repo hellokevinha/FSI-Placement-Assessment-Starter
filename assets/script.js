@@ -1,27 +1,59 @@
 // HINT: You can delete this console.log after you no longer need it!
 console.log('JavaScript code has loaded!')
 // First, tell us your name
-let yourName = "Jane Doe" // HINT: Replace this with your own name!
+let yourName = "Kevin Ha" // HINT: Replace this with your own name!
 
 // We'll use these variables to track the counts of each cookie type
 let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
 
-// selecting the element with an id of credit
 const credit = document.querySelector('#credit')
-// selecting the element with an id of add-gb
 const gbPlusBtn = document.querySelector('#add-gb')
-
-// Code to update name display
+const gbMinusBtn = document.querySelector('#minus-gb')
 credit.textContent = `Created by ${yourName}`
 
-// Event listener for clicks on the "+" button for Gingerbread cookies
 gbPlusBtn.addEventListener('click', function() {
-// HINT: You can delete this console.log after you no longer need it!
 console.log('Gingerbread + button was clicked!')
-
-// TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+})
+gbMinusBtn.addEventListener('click', function() {
+    console.log('Gingerbread - button was clicked!')
 })
 
-// TODO: Hook up event listeners for the rest of the buttons
+function updateSummary(displayQuantity) {
+    let quantity = document.querySelector('.qty-total')
+    quantity.textContent = displayQuantity
+}
+
+gbPlusBtn.addEventListener('click', function(){
+    updateQuantity(`Quantity: ${quantity}`)
+
+
+})
+
+
+const ccPlusBtn = document.querySelector('#add-cc')
+const ccMinusBtn = document.querySelector('#minus-cc')
+
+ccPlusBtn.addEventListener('click', function() {
+    console.log('CC + button was clicked!')
+    quantity++
+    updateSummary(`Summary: ${summary}`)
+    })
+    
+ccMinusBtn.addEventListener('click', function() {
+        console.log('CC - button was clicked!')
+    // TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+    })
+
+const sugarPlusBtn = document.querySelector('#add-sugar')
+const sugarMinusBtn = document.querySelector('#minus-sugar')
+
+sugarPlusBtn.addEventListener('click', function() {
+    console.log('Sugar + button was clicked!')
+    })
+    
+sugarMinusBtn.addEventListener('click', function() {
+        console.log('Sugar - button was clicked!')
+    // TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+    })
