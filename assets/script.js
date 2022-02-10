@@ -1,59 +1,80 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
-// First, tell us your name
-let yourName = "Kevin Ha" // HINT: Replace this with your own name!
+let yourName = "Kevin Ha" 
 
-// We'll use these variables to track the counts of each cookie type
 let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
+let total = gb + cc + sugar
 
 const credit = document.querySelector('#credit')
-const gbPlusBtn = document.querySelector('#add-gb')
-const gbMinusBtn = document.querySelector('#minus-gb')
+
 credit.textContent = `Created by ${yourName}`
 
-gbPlusBtn.addEventListener('click', function() {
-console.log('Gingerbread + button was clicked!')
-})
-gbMinusBtn.addEventListener('click', function() {
-    console.log('Gingerbread - button was clicked!')
-})
+let gbTotal = document.querySelector("#qty-gb")
+let ccTotal = document.querySelector("#qty-cc")
+let sugarTotal = document.querySelector("#qty-sugar")
+let overallTotal = document.querySelector("#qty-total")
 
-function updateSummary(displayQuantity) {
-    let quantity = document.querySelector('.qty-total')
-    quantity.textContent = displayQuantity
+let gbPlusBtn = document.querySelector("#add-gb")
+let gbMinusBtn = document.querySelector("#minus-gb")
+let ccPlusBtn = document.querySelector("#add-cc")
+let ccMinusBtn = document.querySelector("#minus-cc")
+let sugarPlusBtn = document.querySelector("#add-sugar")
+let sugarMinusBtn = document.querySelector("#minus-sugar")
+
+function updateGb(displayGbTotal){
+    let gbTotal = document.querySelector("#qty-gb")
+    gbTotal.textContent = gb
+}
+function updateCc(displayCcTotal){
+    let ccTotal = document.querySelector("#qty-cc")
+    ccTotal.textContent = cc
+}
+function updateSugar(displaySugarTotal){
+    let sugarTotal = document.querySelector("#qty-sugar")
+    sugarTotal.textContent = sugar
+}
+function updateQuantity(displayQuantityTotal){
+    let overallTotal = document.querySelector("#qty-total")
+    overallTotal.textContent = total
 }
 
 gbPlusBtn.addEventListener('click', function(){
-    updateQuantity(`Quantity: ${quantity}`)
-
-
+    ++gb
+    ++total
+    updateQuantity(total) 
+    updateGb(gb) 
+})
+ccPlusBtn.addEventListener('click', function(){
+    ++cc
+    ++total
+    updateQuantity(total) 
+    updateCc(cc) 
+})
+sugarPlusBtn.addEventListener('click', function(){
+    ++sugar
+    ++total
+    updateQuantity(total) 
+    updateSugar(sugar) 
 })
 
-
-const ccPlusBtn = document.querySelector('#add-cc')
-const ccMinusBtn = document.querySelector('#minus-cc')
-
-ccPlusBtn.addEventListener('click', function() {
-    console.log('CC + button was clicked!')
-    quantity++
-    updateSummary(`Summary: ${summary}`)
-    })
-    
-ccMinusBtn.addEventListener('click', function() {
-        console.log('CC - button was clicked!')
-    // TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
-    })
-
-const sugarPlusBtn = document.querySelector('#add-sugar')
-const sugarMinusBtn = document.querySelector('#minus-sugar')
-
-sugarPlusBtn.addEventListener('click', function() {
-    console.log('Sugar + button was clicked!')
-    })
-    
-sugarMinusBtn.addEventListener('click', function() {
-        console.log('Sugar - button was clicked!')
-    // TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
-    })
+gbMinusBtn.addEventListener('click', function(){
+    if(gb > 0){
+    --gb
+    --total}
+    updateQuantity(total)
+    updateGb(gb) 
+})
+ccMinusBtn.addEventListener('click', function(){
+    if(cc > 0){
+    --cc
+    --total}
+    updateQuantity(total)
+    updateCc(cc) 
+})
+sugarMinusBtn.addEventListener('click', function(){
+    if(sugar > 0){
+    --sugar
+    --total}
+    updateQuantity(total)
+    updateSugar(sugar) 
+})
